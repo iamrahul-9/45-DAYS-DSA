@@ -10,25 +10,26 @@ class Stack:
         self.li.pop()
     
     def top(self):
-        print(self.li[-1])
+        return self.li[-1]
 
     def empty(self):
-        if self.li == []:
-            print(True)
-        print(False)
+        if len(self.li) == 0:
+            return True
+        return False
     
     def display(self):
-        print(self.li)
+        return self.li
 
-stack = Stack()
-stack.push(1)
-stack.push(2)
-stack.push(3)
-stack.push(4)
-stack.display()
-stack.pop()
-stack.pop()
-stack.display()
-stack.empty()
-stack.top()
+if __name__ == "__main__":
+    stack = Stack()
+    stack.push(1)
+    stack.push(2)
+    stack.push(3)
+    stack.push(4)
+    stack.display()
+    stack.pop()
+    stack.pop()
+    stack.display()
+    stack.empty()
+    stack.top()
 

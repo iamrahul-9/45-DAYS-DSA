@@ -39,10 +39,27 @@ class LinkedList:
     # Delete the first element
     def delete_head(self):
         if self.head == None:
-            print("Linked list is empty")
+            return
         else:
             # delete the first element
             self.head = self.head.next
+    
+    # Delete by key
+    def delete_key(self,key):
+        if self.head == None:
+            return
+
+        if self.head.next == None or self.head.data == key:
+            self.delete_head()
+            return
+
+        temp = self.head
+        while temp.next.data != key:
+            temp = temp.next
+        todelete = temp.next # saved the address of the element
+        temp.next = temp.next.next
+        # delete the element (although its not required becoz python manage the garbage collection)
+        del todelete
 
     # Search and return the index value
     def search(self,key):
@@ -67,15 +84,15 @@ class LinkedList:
             print("NULL")
 
 llist = LinkedList()
+
 n = int(input("Enter the length of linked list: "))
 for i in range(n):
     x = int(input(f"Element {i+1}: "))
     llist.insert_tail(x)
 
 llist.print_list()
-
-llist.delete_head()
-llist.insert_head(int(input("Enter no: ")))
-llist.print_list()
-
+# llist.delete_head()
+# llist.insert_head(int(input("Enter no: ")))
 # print(llist.search(int(input("Search: "))))
+llist.delete_key(int(input()))
+llist.print_list()

@@ -17,7 +17,7 @@ class LinkedList:
                 last = last.next
             last.next = new_node
 
-    # Reverse a linked list
+    # Method 1. Iterative
     def reverse(self):
         # We need 3 pointers 
         prev = None # Initialised as None
@@ -32,6 +32,16 @@ class LinkedList:
             curr = next
             # last node becomes the new head  
             self.head = prev
+
+    def reverse_recursive(self,head):
+        if  head == None or head.next == None:
+            return head
+        
+        rest = self.reverse_recursive(head.next)
+        head.next.next = head
+        head.next = None
+        return rest
+        
 
     def print_list(self):
         if self.head == None:
@@ -49,5 +59,8 @@ for i in range(n):
     llist.insert_tail(num)
 
 llist.print_list()
-llist.reverse()
+# llist.reverse()
+# llist.print_list()
+
+llist.head = llist.reverse_recursive(llist.head)
 llist.print_list()

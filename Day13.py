@@ -44,12 +44,22 @@ def remove_dup(s):
         return ans
     return ch+ans 
 
+# Q5. Move all x
+def move_allx(s):
+    # base case
+    if len(s) == 0 or len(s) == 1:
+        return s
+    # recursive case
+    ch = s[0]
+    ans = move_allx(s[1:])
+    if ch == 'x':
+        return ans+ch
+    return ch+ans
+    
 # reverse("rahul")
-
 # print()
 # replacepi("pippxxppiixipi")
-
 # print()
 # tower_of_hanoi(2,'A','C','B') 
-
-print(remove_dup("aaaabbbeeecddd"))
+# print(remove_dup("aaaabbbeeecddd"))
+# print(move_allx("axxcvdxvdfcxc"))

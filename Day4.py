@@ -36,7 +36,6 @@ def longest_arithemetic_subarray(a,n):
 
 # Q4. Record Breaker - Google Kickstart
 def record_breaker(a,n):
-    
     if n == 1:
         return 1
     ans = 0
@@ -59,4 +58,4 @@ arr = np.array(li)
 # max_till_i(arr,size)
 # sum_of_subarray(arr,size)    
 # print(longest_arithemetic_subarray(arr,size))
-print(record_breaker(arr,size))
+# print(record_breaker(arr,size))

@@ -24,3 +24,5 @@ def partition(arr,low,high):
 arr = [8,5,3,4,26,6,9,52]
 quick_sort(arr,0,len(arr)-1)
 print(arr)
+
+print("Hello World")

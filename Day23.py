@@ -5,7 +5,7 @@ def is_operand(c):
 	return c.isdigit()
 
 
-def evaluate(expression):
+def prefix_evaluation(expression):
 	"""
 	Evaluate a given expression in prefix notation.
 	Asserts that the given expression is valid.
@@ -39,8 +39,36 @@ def evaluate(expression):
 
 			elif c == '^':
 				stack.append(o1 ** o2)
+			else:
+				return "Wrong Expression"
 
 	return stack.pop()
+	
+def postfix_evaluation(expression):
+    stack = []
+    for i in expression:
+        if i >= '0' and i <= '9':
+            stack.append(int(i))
+        else:
+            opt2 = stack.pop()
+            opt1 = stack.pop()
+        
+            if i == '+':
+                stack.append(opt1+opt2)
+            elif i == '-':
+                stack.append(opt1-opt2)
+            elif i == '*':
+                stack.append(opt1*opt2)
+            elif i == '/':
+                stack.append(opt1/opt2)
+            elif i == '^':
+                stack.append(opt1**opt2)
+                
+    return int(stack.pop())
+
 if __name__ == "__main__":
 	test_expression = "-+7*45+20"
-	print(evaluate(test_expression))
+	print(prefix_evaluation(test_expression))
+
+	expression = "46+2/5*7+"
+	print(postfix_evaluation(expression))

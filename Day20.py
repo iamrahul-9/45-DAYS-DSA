@@ -45,8 +45,11 @@ class LinkedList:
             return
 
         temp = self.head
-        while temp != None and temp.next.data != value:
+        while temp.next.data != value:
             temp = temp.next
+            if self.head.data != value:
+                print("Value is not available")
+                return
         temp.prev.next = temp.next  
         if temp.next != None:
             temp.next.prev = temp.prev
@@ -64,5 +67,5 @@ dllist.insert_tail(2)
 dllist.insert_tail(3)
 dllist.insert_tail(4)
 dllist.display()
-dllist.deletion(3)
+dllist.deletion(2)
 dllist.display()
